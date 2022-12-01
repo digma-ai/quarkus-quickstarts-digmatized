@@ -111,6 +111,7 @@ See [CONTRIBUTING](CONTRIBUTING.md) for how to build these examples.
 * [Apache Tika](./tika-quickstart): Extract metadata and content from your documents
 * [Validation with Hibernate Validator](./validation-quickstart): How to use Hibernate Validator/Bean Validation in your REST services
 * [Using Vert.x](./vertx-quickstart): How to use the Vert.x extension
+* [Using Vert.x web](./vertx-web-quickstart): How to use the Vert.x extension (web). #Digmatized
 * [Using Web Sockets](./websockets-quickstart): Demonstrate how to use web sockets and serve static assets
 * [Context Propagation](./context-propagation): Demonstrate how to use context propagation in your reactive applications
 * [Funqy HTTP](./funqy-quickstarts/funqy-http-quickstart): Funqy functions as HTTP/REST endpoints
