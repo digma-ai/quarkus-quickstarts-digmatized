@@ -99,7 +99,7 @@ See [CONTRIBUTING](CONTRIBUTING.md) for how to build these examples.
 * [Supporting Multi-Tenancy in OpenID Connect Applications](./security-openid-connect-multi-tenancy): How to use OpenId Connect and [Keycloak](https://www.keycloak.org)
 * [Spring DI compatibility layer](./spring-di-quickstart): How to use our Spring Dependency Injection compatibility layer
 * [Spring Data extension](./spring-data-jpa-quickstart): How to use the Quarkus extension for the Spring Data API
-* [Spring Web extension](./spring-web-quickstart): How to use the Quarkus extension for the Spring Web API
+* [Spring Web extension](./spring-web-quickstart): How to use the Quarkus extension for the Spring Web API. #Digmatized
 * [Spring Security extension](./spring-security-quickstart): How to use the Quarkus extension for the Spring Security API
 * [Spring Boot Properties extension](./spring-boot-properties-quickstart): How to use the Quarkus extension for the Spring Boot properties
 * [Spring Scheduled extension](./spring-scheduled-quickstart): How to use the Quarkus extension for the Spring Scheduled annotation
