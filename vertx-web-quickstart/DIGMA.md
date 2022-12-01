@@ -16,7 +16,7 @@ java \
  -javaagent:target/otel/opentelemetry-javaagent.jar \
  -Dotel.javaagent.extensions=target/otel/digma-otel-agent-extension.jar \
  -Dotel.service.name="quarkus-vertx-web-digmatized" \
- -DCODE_PACKAGE_PREFIXES=org.acme \
+ -DCODE_PACKAGE_PREFIXES=org.acme.vertxweb \
  -jar target/quarkus-app/quarkus-run.jar
 ```
 
