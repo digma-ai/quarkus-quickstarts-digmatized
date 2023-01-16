@@ -1,5 +1,13 @@
 ####
-# This Dockerfile is used in order to build a container that runs the Quarkus application in native (no JVM) mode.
+# ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+# ████████████░▄▄▀█░▄▄█░███░█░▄▄▀█░▄▄▀█░▄▄█████████████
+# ████████████░▄▄▀█░▄▄█▄▀░▀▄█░▀▀░█░▀▀▄█░▄▄█████████████
+# ████████████░▀▀░█▄▄▄██▄█▄██▄██▄█▄█▄▄█▄▄▄█████████████
+# ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+# Preparing distroless Dockerfile in this fashion is highly
+# application specific.
+#
+# This Dockerfile is used to build a container that runs the Quarkus application in native (no JVM) mode.
 # It uses a micro base image, tuned for Quarkus native executables.
 # It reduces the size of the resulting container image.
 # Check https://quarkus.io/guides/quarkus-runtime-base-image for further information about this image.
@@ -7,6 +15,10 @@
 # Before building the container image run:
 #
 # ./mvnw package -Pnative
+#
+# or use the builder image if your host is not CentOS/Fedora based:
+#
+# ./mvnw package -Pnative -Dquarkus.native.container-build=true -Dquarkus.native.builder-image=quay.io/quarkus/ubi-quarkus-mandrel:22.3-java17
 #
 # Then, build the image with:
 #
@@ -17,12 +29,40 @@
 # docker run -i --rm -p 8080:8080 quarkus/awt-graphics-rest-quickstart
 #
 ###
+FROM registry.access.redhat.com/ubi8/ubi-minimal:8.6 as nativelibs
+RUN microdnf install freetype fontconfig
+
 FROM quay.io/quarkus/quarkus-micro-image:2.0
-WORKDIR /work/
-RUN chown 1001 /work \
-    && chmod "g+rwX" /work \
-    && chown 1001:root /work
-COPY --chown=1001:root target/*-runner /work/application
+COPY --from=nativelibs \
+   /lib64/libz.so.1 \
+   /lib64/libstdc++.so.6 \
+   /lib64/libfreetype.so.6 \
+   /lib64/libgcc_s.so.1 \
+   /lib64/libbz2.so.1 \
+   /lib64/libpng16.so.16 \
+   /lib64/libm.so.6 \
+   /lib64/libbz2.so.1 \
+   /lib64/libexpat.so.1 \
+   /lib64/libuuid.so.1 \
+   /lib64/
+
+COPY --from=nativelibs \
+   /usr/lib64/libfontconfig.so.1 \
+   /usr/lib64/
+
+COPY --from=nativelibs \
+    /usr/share/fonts /usr/share/fonts
+
+COPY --from=nativelibs \
+    /usr/share/fontconfig /usr/share/fontconfig
+
+COPY --from=nativelibs \
+    /usr/lib/fontconfig /usr/lib/fontconfig
+
+COPY --from=nativelibs \
+     /etc/fonts /etc/fonts
+
+COPY target/*-runner /application
 
 EXPOSE 8080
 USER 1001
