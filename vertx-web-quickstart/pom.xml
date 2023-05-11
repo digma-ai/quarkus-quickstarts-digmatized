@@ -119,7 +119,7 @@
                             <goal>download-single</goal>
                         </goals>
                         <configuration>
-                            <url>https://s01.oss.sonatype.org/content/repositories/releases/io/github/digma-ai/digma-otel-agent-extension/0.4.22/digma-otel-agent-extension-0.4.22.jar</url>
+                            <url>https://github.com/digma-ai/otel-java-instrumentation/releases/latest/download/digma-otel-agent-extension.jar</url>
                             <toFile>${project.build.directory}/otel/digma-otel-agent-extension.jar</toFile>
                         </configuration>
                     </execution>
