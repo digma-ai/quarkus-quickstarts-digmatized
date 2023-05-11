@@ -10,7 +10,7 @@
     <properties>
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
-        <quarkus.platform.version>2.16.5.Final</quarkus.platform.version>
+        <quarkus.platform.version>3.0.3.Final</quarkus.platform.version>
         <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
         <compiler-plugin.version>3.8.1</compiler-plugin.version>
         <kotlin.version>1.7.20</kotlin.version>
@@ -143,8 +143,8 @@
                         <plugin>all-open</plugin>
                     </compilerPlugins>
                     <pluginOptions>
-                        <option>all-open:annotation=javax.ws.rs.Path</option>
-                        <option>all-open:annotation=javax.enterprise.context.ApplicationScoped</option>
+                        <option>all-open:annotation=jakarta.ws.rs.Path</option>
+                        <option>all-open:annotation=jakarta.enterprise.context.ApplicationScoped</option>
                         <option>all-open:annotation=io.quarkus.test.junit.QuarkusTest</option>
                     </pluginOptions>
                 </configuration>

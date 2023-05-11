@@ -21,6 +21,7 @@
         <module>cache-quickstart</module>
         <module>config-quickstart</module>
         <module>context-propagation-quickstart</module>
+        <module>elasticsearch-quickstart</module>
         <module>funqy-quickstarts</module>
         <module>getting-started</module>
         <module>getting-started-async</module>
@@ -49,10 +50,6 @@
         <module>kafka-avro-schema-quickstart</module>
         <module>kafka-bare-quickstart</module>
         <module>kafka-streams-quickstart</module>
-        <module>kogito-quickstart</module>
-        <module>kogito-drl-quickstart</module>
-        <module>kogito-dmn-quickstart</module>
-        <module>kogito-pmml-quickstart</module>
         <module>optaplanner-quickstart</module>
         <module>lifecycle-quickstart</module>
         <module>micrometer-quickstart</module>
@@ -64,7 +61,9 @@
         <module>mongodb-quickstart</module>
         <module>mongodb-panache-quickstart</module>
         <module>mqtt-quickstart</module>
+        <!--
         <module>neo4j-quickstart</module>
+        -->
         <module>openapi-swaggerui-quickstart</module>
         <module>opentracing-quickstart</module>
         <module>opentelemetry-quickstart</module>
